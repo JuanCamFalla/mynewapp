@@ -7,6 +7,8 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
   imports: [
     CommonModule
   ],
+  exports: [TaskListComponent],
   declarations: [TaskListComponent, TaskDetailComponent]
+
 })
 export class TaskModule { }
