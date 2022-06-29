@@ -39,7 +39,7 @@ export class TaskService {
   addTask(title: string, description: string, dueDate: Date) {
     console.log("task add");
     this.tasksInfo.push({
-      id: this.tasksInfo.length,
+      id: this.tasksInfo.length + 1,
       dueDate: dueDate,
       title: title,
       status: false,

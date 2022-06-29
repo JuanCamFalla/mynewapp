@@ -38,7 +38,8 @@ export class TaskListComponent implements OnInit {
     this.taskService.deleteTask(task);
   }
 
-  addTask(title: string, description: string, dueDate: Date) {
-    this.taskService.addTask(title, description, dueDate);
+  addTask(title: string, description: string, dueDate: string) {
+    let dateValue = new Date(dueDate);
+    this.taskService.addTask(title, description, dateValue);
   }
 }
