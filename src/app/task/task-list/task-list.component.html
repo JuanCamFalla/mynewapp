@@ -1,31 +1,41 @@
 <div class = "container-fluid">
   <div class = "row">
-    <div class = "col-md-12">
-      <h1>Task List</h1>
-    </div>
+
   </div>
   <div class = "row">
-    <div class = "col-md-12">
-      <table class = "table table-striped">
+    <div class = "col-8">
+      <table class = "table">
         <thead>
           <tr>
+            <th>#</th>
             <th>Task</th>
-            <th>Description</th>
             <th>Status</th>
-            <th>Action</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th> Complete </th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor = "let task of tasks">
-            <td>{{task.title}}</td>
-            <td>{{task.status}}</td>
+            <td>{{task.id}}</td>
+            <td class = "titulo" (click)="onSelected(task)">{{task.title}}</td>
+            <td><div class = "box {{ (task.status) ? 'true' : ''}}"> </div></td>
             <td>
               <button class = "btn btn-primary">Edit</button>
-              <button class = "btn btn-danger" >Delete</button>
+            </td>
+            <td>
+              <button class = "btn btn-danger" (click)="deleteTask(task)">Delete</button>
+            </td>
+            <td>
+              <button class = "btn btn-success" (click)="completeTask(task)">Complete</button>
             </td>
           </tr>
         </tbody>
       </table>
+
+    </div>
+    <div class="col-4" *ngIf="selected">
+      <app-task-detail [taskDetail]="selectedTask"></app-task-detail>
     </div>
   </div>
 </div>

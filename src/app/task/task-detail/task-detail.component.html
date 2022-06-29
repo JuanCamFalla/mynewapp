@@ -1,16 +1,16 @@
 <div class = "container-fluid">
-  <div class = "row">
-    <div class = "col-6">
-      <dl>
-        <dt class = "bold">Task # {{taskDetail.id}}</dt>
-        <dd>{{taskDetail.title}}</dd>
-        <dt>Description</dt>
-        <dd>{{taskDetail.description}}</dd>
-        <dt>Status</dt>
-        <dd>{{taskDetail.status}}</dd>
-        <dt>Due</dt>
-        <dd>{{taskDetail.dueDate | date}}</dd>
-      </dl>
+    <div class = "card p-2" style="width: 28rem; height: 25rem;">
+      <div class="card-body">
+        <dl>
+          <dt class = "bold">Task # {{taskDetail.id}}</dt>
+          <dd>{{taskDetail.title}}</dd>
+          <dt>Description</dt>
+          <dd>{{taskDetail.description}}</dd>
+          <dt>Status</dt>
+          <dd>{{taskDetail.status}}</dd>
+          <dt>Due</dt>
+          <dd>{{taskDetail.dueDate | date}}</dd>
+        </dl>
+      </div>
     </div>
-  </div>
 </div>

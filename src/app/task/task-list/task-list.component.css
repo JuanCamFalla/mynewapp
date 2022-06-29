@@ -1,0 +1,15 @@
+.box
+{
+  width: 35px;
+  height: 35px;
+  background-color: red;
+  border-radius: 7px;
+}
+
+.box.true
+{
+  width: 35px;
+  height: 35px;
+  background-color: green;
+  border-radius: 7px;
+}

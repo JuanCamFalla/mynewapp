@@ -17,6 +17,7 @@ export class TaskListComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
+    this.getTasks();
   }
 
   getTasks(): void {
@@ -26,6 +27,18 @@ export class TaskListComponent implements OnInit {
   onSelected(task: TaskDetail) {
     this.selected = true;
     this.selectedTask = task;
+  }
 
+  completeTask(task: TaskDetail) {
+    task.status = true;
+    this.taskService.updateTask(task);
+  }
+
+  deleteTask(task: TaskDetail) {
+    this.taskService.deleteTask(task);
+  }
+
+  addTask(title: string, description: string, dueDate: Date) {
+    this.taskService.addTask(title, description, dueDate);
   }
 }
