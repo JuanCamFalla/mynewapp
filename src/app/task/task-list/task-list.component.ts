@@ -12,6 +12,7 @@ export class TaskListComponent implements OnInit {
 
   tasks: Array<TaskDetail> = [];
   selected: boolean = false;
+  selectedForEditing: boolean = false;
   selectedTask!: TaskDetail;
 
   constructor(private taskService: TaskService) { }
@@ -29,6 +30,10 @@ export class TaskListComponent implements OnInit {
     this.selectedTask = task;
   }
 
+  onEdit(task: TaskDetail) {
+    this.selectedForEditing = true;
+    this.selectedTask = task;
+  }
   completeTask(task: TaskDetail) {
     task.status = true;
     this.taskService.updateTask(task);
@@ -42,4 +47,23 @@ export class TaskListComponent implements OnInit {
     let dateValue = new Date(dueDate);
     this.taskService.addTask(title, description, dateValue);
   }
+
+  changeDate(task: TaskDetail, dueDate: string) {
+    let dateValue = new Date(dueDate);
+    this.taskService.updateTaskDate(task, dateValue);
+  }
+
+  changeDescription(task: TaskDetail, description: string) {
+    this.taskService.updateTaskDescription(task, description);
+  }
+
+  changeTitle(task: TaskDetail, title: string) {
+    this.taskService.updateTaskTitle(task, title);
+  }
+
+  deSelect(task: TaskDetail){
+    this.selected = false;
+    this.selectedForEditing = false;
+  }
 }
+

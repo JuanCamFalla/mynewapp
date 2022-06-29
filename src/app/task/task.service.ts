@@ -7,6 +7,7 @@ import { TaskDetail } from './task-detail';
 })
 export class TaskService {
 
+
  tasksInfo: Array<TaskDetail>=
 [
   {
@@ -47,4 +48,19 @@ export class TaskService {
     });
   }
 
+  updateTaskDate(task: TaskDetail, NewDate: Date) {
+    console.log("task date update");
+    this.tasksInfo[task.id - 1].dueDate = NewDate;
+  }
+
+  updateTaskDescription(task: TaskDetail, newDescription: string) {
+    console.log("task description update");
+    this.tasksInfo[task.id - 1].description = newDescription;
+  }
+
+  updateTaskTitle(task: TaskDetail, newTitle: string) {
+    console.log("task title update");
+    this.tasksInfo[task.id - 1].title = newTitle;
+  }
 }
+
